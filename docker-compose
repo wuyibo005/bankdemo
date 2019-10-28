@@ -1,0 +1,37 @@
+version: "3.7" #版本声明
+networks: #网络声明
+  ghost: #网络名称
+services: #服务声明
+  eurekaService: #服务名称
+    image: "ccr.ccs.tencentyun.com/moto/eurekaservice:17" #指定镜像tag或者ID
+    networks: #网络声明
+      - host #网络名称
+    ports: #用于暴露端口
+      - "8761:8761"
+
+  tx-manager:
+    image: "ccr.ccs.tencentyun.com/moto/tx-manager:17" #指定镜像tag或者ID
+    networks:
+      - host
+    depends_on: #指定服务依赖
+      - eurekaService #指定服务依赖
+    ports:
+      - "7970:7970"
+
+  bank-a:
+    image: "ccr.ccs.tencentyun.com/moto/bank-a:17" #指定镜像tag或者ID
+    networks:
+      - host
+    depends_on: #指定服务依赖
+      - tx-manager #指定服务依赖
+    ports:
+      - "7071:7071"
+  bank-b:
+    image: "ccr.ccs.tencentyun.com/moto/bank-b:17" #指定镜像tag或者ID
+    networks:
+      - host
+    depends_on: #指定服务依赖
+      - tx-manager #指定服务依赖
+      - bank-a
+    ports:
+      - "7072:7072"
