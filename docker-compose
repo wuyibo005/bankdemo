@@ -1,4 +1,4 @@
-version: "3.7" #版本声明
+version: "2" #版本声明
 networks: #网络声明
   ghost: #网络名称
 services: #服务声明
