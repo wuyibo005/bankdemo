@@ -1,7 +1,7 @@
 #一个Dockerfile 实现构建多个镜像
 # Base images 基础镜像
-#FROM 100007533986/alpine-oraclejdk8:slim
-FROM ccr.ccs.tencentyun.com/moto/openjdk-tini-arthas-ttf:v22
+FROM 100007533986/alpine-oraclejdk8:slim
+#FROM ccr.ccs.tencentyun.com/moto/openjdk-tini-arthas-ttf:v22
 LABEL version="1.0" description="springboot 微服务注册中心" by="wuyibo"
 #MAINTAINER 维护者信息
 MAINTAINER wuyibo  <771227828@qq.com>
