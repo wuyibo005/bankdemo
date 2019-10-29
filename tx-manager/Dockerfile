@@ -1,8 +1,6 @@
 #一个Dockerfile 实现构建多个镜像
 #FROM 100007533986/alpine-oraclejdk8:slim
 FROM ccr.ccs.tencentyun.com/moto/openjdk-tini-arthas-ttf:v22
-
-FROM oraclejdk8_base AS tx-manager
 LABEL version="1.0" description="springboot 微服务-分布式事务控制管理服务" by="wuyibo"
 #MAINTAINER 维护者信息
 MAINTAINER wuyibo  <771227828@qq.com>
